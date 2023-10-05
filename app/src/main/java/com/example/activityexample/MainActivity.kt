@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d("Fired", "onCreate()")
 
         resultTextView = findViewById<TextView>(R.id.resultTextView)
 
@@ -37,5 +39,33 @@ class MainActivity : AppCompatActivity() {
             launchIntent.putExtra(MESSAGE_KEY, "Hello! this is a message to SecondActivity")
             launcher.launch(launchIntent)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Fired", "onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Fired", "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Fired", "onPause()")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Fired", "onStop()")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Fired", "onDestroy()")
+
     }
 }
